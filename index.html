@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cinta untuk Nata 💖</title>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffe4f0;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #fff0f6;
+      padding: 40px 60px;
+      border-radius: 25px;
+      box-shadow: 0 0 35px rgba(255, 105, 180, 0.5);
+      width: 450px; /* lebih besar */
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff1a75;
+      margin-bottom: 16px;
+      font-size: 2.2rem;
+    }
+
+    p {
+      margin-bottom: 28px;
+      font-size: 18px;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 14px;
+      font-weight: 700;
+      padding: 14px 36px;
+      font-size: 18px;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    #lihatBtn {
+      background-color: #ff4da6;
+      color: white;
+      margin-bottom: 35px;
+      box-shadow: 0 5px 15px rgba(255, 77, 166, 0.5);
+    }
+
+    #lihatBtn:hover {
+      background-color: #e64493;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #pertanyaan h2 {
+      color: #d9006f;
+      margin-bottom: 36px;
+      font-size: 1.8rem;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      position: relative;
+      height: 70px;
+    }
+
+    #iyaBtn {
+      background-color: #7af27f;
+      color: #003300;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 5px 12px rgba(122, 242, 127, 0.6);
+      transition: background-color 0.3s ease;
+    }
+
+    #iyaBtn:hover {
+      background-color: #4dd24d;
+    }
+
+    #gaBtn {
+      background-color: #ff6666;
+      color: #330000;
+      position: relative;
+      z-index: 1;
+      transition: background-color 0.3s ease, transform 0.15s ease;
+      box-shadow: 0 5px 12px rgba(255, 102, 102, 0.6);
+    }
+
+    #gaBtn:hover {
+      background-color: #d94c4c;
+    }
+
+    #jawaban h2 {
+      color: #d9006f;
+      margin-top: 28px;
+      font-size: 1.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hai Kamu ini! 🌹</h1>
+    <p>🌸 Website Cinta 🌸</p>
+    <button id="lihatBtn">Klik untuk lihat 💌</button>
+
+    <div id="pertanyaan" class="hidden">
+      <h2>Maukah Nata menjadi pacarku? 💕</h2>
+      <div class="btn-container">
+        <button id="iyaBtn">Iyaaa! 😘</button>
+        <button id="gaBtn">Gak dulu... 🥺</button>
+      </div>
+    </div>
+
+    <div id="jawaban" class="hidden">
+      <h2>Yay! Aku senang kamu bilang iya 💖</h2>
+    </div>
+  </div>
+
+  <script>
+    const lihatBtn = document.getElementById("lihatBtn");
+    const pertanyaan = document.getElementById("pertanyaan");
+    const iyaBtn = document.getElementById("iyaBtn");
+    const gaBtn = document.getElementById("gaBtn");
+    const jawaban = document.getElementById("jawaban");
+
+    // Tampilkan pertanyaan saat tombol "lihat" diklik
+    lihatBtn.addEventListener("click", () => {
+      pertanyaan.classList.remove("hidden");
+      lihatBtn.style.display = "none";
+    });
+
+    // Saat klik "Iyaaa!", tampilkan jawaban senang
+    iyaBtn.addEventListener("click", () => {
+      pertanyaan.classList.add("hidden");
+      jawaban.classList.remove("hidden");
+    });
+
+    // Tombol "Gak dulu..." bergerak lebih agresif saat hover
+    gaBtn.addEventListener("mouseenter", () => {
+      const maxMove = 50; // maksimal gerak px (lebih jauh)
+      const moveX = (Math.random() * maxMove * 2) - maxMove;
+      const moveY = (Math.random() * maxMove * 2) - maxMove;
+      gaBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+
+    // Kembali ke posisi normal saat mouse keluar
+    gaBtn.addEventListener("mouseleave", () => {
+      gaBtn.style.transform = "translate(0, 0)";
+    });
+  </script>
+</body>
+</html>
